@@ -1,0 +1,50 @@
+docker pull mysql
+docker system info
+docker image inspect ubuntu
+docker pull nginx
+docker run -it --rm ubuntu bash
+docker run --rm nginx -p 8080:80
+docker run -d --rm -p 8080:80 nginx 
+docker container ls
+docker container ls
+docker logs 1b3dd0596c92
+docker logs 1b3dd0596c92 -f
+docker ps
+docker stop 1b3dd0596c92
+docker run -d -p 8080:80 nginx
+docker exec ed4376354c9e ls -l        Executa sem rodar uma nova instancia do container. Pois o run cria uma nova instancia
+docker exec -it ed4376354c9e bash     Entra no container no modo interativo
+
+
+Para as imagens
+criar o docker file
+docker build .
+docker build -t enterprise/custom-ubuntu .
+docker build -t enterprise/custom-ubuntu --no-cache .
+docker run --rm -it enterprise/custom-ubuntu bash
+docker image rm imageID or name
+docker build -t enterprise/custom-ubuntu:1.0.0 .
+docker run --rm -it enterprise/custom-ubuntu:1.0.0 bash
+docker tag enterprise/custom-ubuntu:1.0.0 enterprisecustom-ubuntu:latest
+docker run --rm -it enterprise/custom-ubuntu bash
+
+Adicionado ultimo comando no dockerfile
+docker build -t enterprise/custom-ubuntu:1.0.1 .
+
+Docker compose:
+criar arquivo docker-compose.yml
+docker compose up
+docker compose up -d
+docker compose logs -f app
+docker compose ps
+docker compose stop      apena stopa o container, sem deletar
+docker compose down 	 stopa o container e deleta
+docker compose restart app
+docker compose restart
+docker compose pull        atualiza as imagens que o compose ta usando
+docker compose exec app bash
+docker compose exec app -l
+
+docker system df
+
+
