@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  app:
+    build: 
+      context: ./
+      dockerfile: ./provisions/app/dockerfile
+    image: enterprisename/docker-demo-app
+    container_name: enterprisename-demo-app
+    ports: 
+      - '8080:80'
+    volumes:
+      - ./src:/usr/share/nginx/html
+
+  db:
+    image: mariadb
+    container_name: enterprisename-demo-db
+    environment:
+      MYSQL_ROOT_PASSWORD: "patate"
+      MYSQL_USER: 'dev'
+      MYSQL_PASSWORD: 'dev123'
+    volumes:
+      - ./provisions/db/init:/docker-entrypoint-initdb.d
+      - ./provisions/db/data:/var/lib/mysql
+    ports:
+      - '3306:3306'
